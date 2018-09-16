@@ -27,28 +27,7 @@ namespace ConsoleUITemp
 
             try
             {
-                sw.Start();
-                list.ConsolePrint("People");
-                long list1 = sw.ElapsedMilliseconds;
-                Console.WriteLine("first");
-                sw.Restart();
-                list.ConsolePrint2("People");
-                long list2 = sw.ElapsedMilliseconds;
-                Console.WriteLine("second");
-                sw.Restart();
-                table.ConsolePrint();
-                long table1 = sw.ElapsedMilliseconds;
-                Console.WriteLine("third");
-                sw.Restart();
-                table.ConsolePrint2();
-                long table2 = sw.ElapsedMilliseconds;
-                Console.WriteLine("fourth");
-                sw.Stop();
-
-                Console.WriteLine("List (reflection style) {0}", list1);
-                Console.WriteLine("List (toDataTable style) {0}", list2);
-                Console.WriteLine("Table (reflection style) {0}", table1);
-                Console.WriteLine("Table (toDataTable style) {0}", table2);
+                Console.WriteLine(table.CreateStringTable());
             }
             catch (Exception e)
             {
@@ -58,6 +37,7 @@ namespace ConsoleUITemp
             {
                 Console.ReadKey();
             }
+
 
         }
     }

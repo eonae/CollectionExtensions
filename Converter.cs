@@ -12,7 +12,6 @@ namespace Eonae.CollectionExtensions
     {
         public static DataTable ToDataTable<SomeClass>(this IEnumerable<SomeClass> list, string name)
         {
-
             DataTable table = new DataTable() { TableName = name };
             Type type = typeof(SomeClass);
             var properties = type.GetProperties(BindingFlags.Public | BindingFlags.Instance);

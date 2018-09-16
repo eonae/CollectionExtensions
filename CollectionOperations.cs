@@ -20,7 +20,8 @@ namespace Eonae.CollectionExtensions
         }
         public static T RandomElement<T>(this IEnumerable<T> list)
         {
-            return list.ToArray()[rnd.Next(list.Count())];
+            int count = list.Count();
+            return list.ToArray()[rnd.Next(count)];
         }
 
         public static IEnumerable<T> Shuffle<T>(this IEnumerable<T> list)

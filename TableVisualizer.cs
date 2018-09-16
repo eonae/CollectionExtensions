@@ -21,10 +21,9 @@ namespace Eonae.CollectionExtensions
             var table = list.ToDataTable(name);
             return table.CreateStringTable();
         }
+
         public static string CreateStringTable(this DataTable table)
         {
-            if (table == null || table.Rows.Count==0)
-                throw new Exception("List cannot be null.");
 
             var tableInfo = GetTableInfo(table);
 
@@ -33,6 +32,7 @@ namespace Eonae.CollectionExtensions
             var sb = new StringBuilder();
             if (table.TableName != "") sb.AppendLine($"Title: {table.TableName} ");
             sb.Append(AddTitles(columnsInfo, tableWidth));
+            if (table.Rows.Count == 0) return sb.ToString();
 
             string simpleDelimeter = new string(simpleDelimeterChar, tableWidth);
             foreach (DataRow row in table.AsEnumerable())
@@ -55,7 +55,6 @@ namespace Eonae.CollectionExtensions
                 sb.AppendLine();
                 sb.AppendLine(new string(' ', leftMargin) + simpleDelimeter);
             }
-            sb.AppendLine();
             return sb.ToString();
         }
 
